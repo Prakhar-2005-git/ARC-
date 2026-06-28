@@ -49,6 +49,7 @@ nav {
   height: 68px;
   display: flex; align-items: center; justify-content: space-between;
   transition: background 0.3s;
+  width: 100%;
 }
 
 .nav-logo img {
@@ -71,6 +72,43 @@ nav {
   transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--white); }
+.dropdown { position: relative; }
+.dropdown .dropbtn { display: inline-flex; align-items: center; gap: 6px; }
+.dropdown-content {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 190px;
+  background: rgba(6,6,6,0.98);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 16px 30px rgba(0,0,0,0.28);
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 100;
+}
+.dropdown.open .dropdown-content,
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.dropdown-content li {
+  margin: 0;
+}
+.dropdown-content a {
+  display: block;
+  padding: 10px 18px;
+  color: var(--grey1);
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: none;
+}
+.dropdown-content a:hover { background: rgba(255,255,255,0.06); color: var(--white); }
 .nav-links a:focus-visible,
 .btn-primary:focus-visible,
 .btn-secondary:focus-visible,
@@ -595,12 +633,14 @@ section {
 @media (max-width: 700px) {
   section {
     padding: 80px 24px;
+    position: relative;
   }
   .section-desc {
     margin-bottom: 40px;
   }
   .social-card {
     padding: 20px;
+    position: relative;
   }
   .social-visual {
     min-height: 260px;
@@ -939,7 +979,10 @@ footer {
 
 /* ===== MOBILE ===== */
 @media (max-width: 900px) {
-  nav { padding: 0 24px; }
+  nav {
+    padding: 0 24px; 
+    position:relative;
+  }
   .nav-links {
     display: none;
   }
@@ -953,6 +996,29 @@ footer {
     padding: 20px 24px;
     gap: 16px;
     border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .dropdown .dropbtn {
+    width: 100%;
+  }
+  .dropdown .dropdown-content {
+    position: static;
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    transition: none;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  .dropdown.open .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    max-height: 100vh;
+  }
+  .dropdown-content a {
+    padding: 10px 0;
   }
   .hamburger { display: flex; }
   section { padding: 70px 24px; }
@@ -1024,6 +1090,14 @@ footer {
   .about-glance { grid-template-columns: 1fr 1fr; }
   .section-divider { margin: 0 24px; }
 }
+.white-link {
+  color: white; 
+  text-decoration: none;
+}
+.white-link:visited,
+.white-link:active {
+  color: white; 
+}
 </style>
 </head>
 <body>
@@ -1036,6 +1110,15 @@ footer {
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#vehicles">Vehicles</a></li>
+    <li class="dropdown">
+      <a class="dropbtn" onclick="toggleDropdown(event)">Training &#9662;</a>
+      <ul class="dropdown-content" id="trainingDropdown">
+        <li><a href="./ebike_program.html">E-Bike</a></li>
+        <li><a href="./Formula_program.html">Formula</a></li>
+        <li><a href="./gokart_program.html">Go-Kart</a></li>
+        <li><a href="./BajaBuggy_Poster.html">ATV</a></li>
+      </ul>
+    </li>
     <li><a href="#services">Services</a></li>
     <li><a href="#research">Innovation</a></li>
     <li><a href="#team">Team</a></li>
@@ -1046,6 +1129,23 @@ footer {
     <span></span><span></span><span></span>
   </div>
 </nav>
+<div class="ticker" style="margin-top: 4%;">
+  <div class="ticker-inner" id="ticker-inner">
+    <span class="ticker-item"><a class="white-link" href="https://forms.gle/D6AfAjKS8njYUYjE9" target="_blank" rel="noopener noreferrer">ARC Championship (Click to register)</a> <span class="ticker-sep">·</span></span>
+    <span class="ticker-item"><a class="white-link" href="https://forms.gle/D6AfAjKS8njYUYjE9" target="_blank" rel="noopener noreferrer">India Student Championship (Click to register)</a> <span class="ticker-sep">·</span></span>
+    <span class="ticker-item"><a class="white-link" href="https://forms.gle/D6AfAjKS8njYUYjE9" target="_blank" rel="noopener noreferrer">Motorsports Teams (Click to register)</a> <span class="ticker-sep">·</span></span>
+    <span class="ticker-item"><a class="white-link" href="https://forms.gle/D6AfAjKS8njYUYjE9" target="_blank" rel="noopener noreferrer">Digital Championship (Click to register)</a> <span class="ticker-sep">·</span></span>
+    <span class="ticker-item"><a class="white-link" href="https://forms.gle/D6AfAjKS8njYUYjE9" target="_blank" rel="noopener noreferrer">July 13 – August 12, 2026 (Click to register)</a> <span class="ticker-sep">·</span></span>
+    <span class="ticker-item"><a class="white-link" href="https://forms.gle/D6AfAjKS8njYUYjE9" target="_blank" rel="noopener noreferrer">Until July 5, 2026 (Click to register)</a> <span class="ticker-sep">·</span></span>
+    <span class="ticker-item"><a class="white-link" href="https://forms.gle/D6AfAjKS8njYUYjE9" target="_blank" rel="noopener noreferrer">Registration Open (Click to register)</a> <span class="ticker-sep">·</span></span>
+    <span class="ticker-item"><a class="white-link" href="https://forms.gle/D6AfAjKS8njYUYjE9" target="_blank" rel="noopener noreferrer">July 6 – 12, 2026 (Click to register)</a> <span class="ticker-sep">·</span></span>
+    <span class="ticker-item"><a class="white-link" href="https://forms.gle/D6AfAjKS8njYUYjE9" target="_blank" rel="noopener noreferrer">Announce & Collaborate (Click to register)</a> <span class="ticker-sep">·</span></span>
+    <span class="ticker-item"><a class="white-link" href="https://forms.gle/D6AfAjKS8njYUYjE9" target="_blank" rel="noopener noreferrer">Go Karts (Click to register)</a> <span class="ticker-sep">·</span></span>
+    <span class="ticker-item"><a class="white-link" href="https://forms.gle/D6AfAjKS8njYUYjE9" target="_blank" rel="noopener noreferrer">Formula Vehicles (Click to register)</a> <span class="ticker-sep">·</span></span>
+    <span class="ticker-item"><a class="white-link" href="https://forms.gle/D6AfAjKS8njYUYjE9" target="_blank" rel="noopener noreferrer">ATV & Quad Bikes (Click to register)</a> <span class="ticker-sep">·</span></span>
+    <span class="ticker-item"><a class="white-link" href="https://forms.gle/D6AfAjKS8njYUYjE9" target="_blank" rel="noopener noreferrer">July 13 – August 12, 2026 (Click to register)</a> <span class="ticker-sep">·</span></span>
+  </div>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -1136,22 +1236,22 @@ footer {
       </article>
 
       <article class="product-card">
-        <div class="product-image-slot"><img src="./ARC2.jpg" alt="Product Image 2"></div>
+        <div class="product-image-slot"><img src="./ARC2.jpeg" alt="Product Image 2"></div>
         <div class="product-details-slot">Product Details &amp; Cost:</div>
       </article>
 
       <article class="product-card">
-        <div class="product-image-slot"><img src="./ARC3.jpg" alt="Product Image 3"></div>
+        <div class="product-image-slot"><img src="./ARC3.jpeg" alt="Product Image 3"></div>
         <div class="product-details-slot">Product Details &amp; Cost:</div>
       </article>
 
       <article class="product-card">
-        <div class="product-image-slot"><img src="./ARC4.jpg" alt="Product Image 4"></div>
+        <div class="product-image-slot"><img src="./ARC4.jpeg" alt="Product Image 4"></div>
         <div class="product-details-slot">Product Details &amp; Cost:</div>
       </article>
       
       <article class="product-card">
-        <div class="product-image-slot"><img src="./ARC5.jpg" alt="Product Image 5"></div>
+        <div class="product-image-slot"><img src="./ARC5.jpeg" alt="Product Image 5"></div>
         <div class="product-details-slot">Product Details &amp; Cost:</div>
       </article>
     </div>
@@ -1716,7 +1816,23 @@ function closeMenu() {
   const button = document.querySelector('.hamburger');
   links.classList.remove('is-open');
   button.classList.remove('is-open');
+  document.querySelectorAll('.dropdown.open').forEach(dropdown => dropdown.classList.remove('open'));
 }
+
+function toggleDropdown(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  const dropdown = event.currentTarget.closest('.dropdown');
+  if (!dropdown) return;
+  dropdown.classList.toggle('open');
+}
+
+window.addEventListener('click', (event) => {
+  const openDropdown = document.querySelector('.dropdown.open');
+  if (openDropdown && !openDropdown.contains(event.target)) {
+    openDropdown.classList.remove('open');
+  }
+});
 
 // Service tabs
 function showService(btn, id) {
@@ -1726,7 +1842,7 @@ function showService(btn, id) {
   document.getElementById('srv-' + id).classList.add('active');
 }
 
-document.querySelectorAll('.nav-links a').forEach(link => {
+document.querySelectorAll('.nav-links a:not(.dropbtn)').forEach(link => {
   link.addEventListener('click', closeMenu);
 });
 
