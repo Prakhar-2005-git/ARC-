@@ -177,8 +177,10 @@ a{ text-decoration:none; color:inherit; }
 @media (min-width: 600px){ .applygrid{ grid-template-columns: 1fr 1fr; } }
 .applycard{ display:flex; gap:14px; align-items:flex-start; background:var(--panel); border:1px solid var(--line); padding:16px 18px; }
 .applycard .ic{ font-size:20px; flex-shrink:0; }
+.applycard .ic.num{ font-family:'ArchivoBlack'; font-size:20px; color:var(--red); width:26px; }
 .applycard h6{ font-family:'Oswald'; font-weight:700; font-size:14.5px; text-transform:uppercase; color:var(--paper); }
 .applycard p{ font-family:'Inter'; font-size:13.5px; color:var(--paper-dim); margin-top:5px; line-height:1.5; }
+.applycard p:only-child{ margin-top:0; }
 
 /* ===== terms ===== */
 .termslist{ display:flex; flex-direction:column; gap:10px; }
@@ -259,7 +261,7 @@ a{ text-decoration:none; color:inherit; }
 
 <div class="wrap">
   <a class="btn btn-light" href="./index.html">
-        Back to Home
+      Back to Home
   </a>
   <div class="topbar">
     <div class="eyebrow">Engineering · Manufacturing · Motorsports</div>
@@ -269,19 +271,19 @@ a{ text-decoration:none; color:inherit; }
   <div class="hero">
     <div class="stripe-wrap"><div class="stripe"><div class="stripe-check"></div></div></div>
     <div class="kicker-row">
-      <div class="powered">Baja Buggy DESIGN &amp; FABRICATION</div>
+      <div class="powered">BAJA BUGGY DESIGN &amp; FABRICATION</div>
       <div class="by">POWERED BY ARC GLOBAL</div>
     </div>
     <div class="titleblock">
-      <h1>30-DAY <span class="hl">DESIGN</span><br>+ FABRICATION</h1>
-      <div class="sub">A comprehensive understanding of the principles and techniques involved in designing, analyzing, simulating, and fabricating high-performance Baja Buggies. 100% offline. 100% in-person.</div>
+      <h1>INTERNSHIP <span class="hl">CUM</span><br>TRAINING PROGRAM</h1>
+      <div class="sub">End-to-end Baja Buggy (ATV) development — chassis design, suspension, powertrain, electrical systems, fabrication, and real-world testing. ATV / Off-Road Engineering.</div>
     </div>
 
     <div class="statrow">
-      <div class="stat"><div class="n">30</div><div class="l">Days Total</div></div>
-      <div class="stat"><div class="n">15+15</div><div class="l">Design + Build</div></div>
+      <div class="stat"><div class="n">30</div><div class="l">Days Intensive</div></div>
       <div class="stat"><div class="n">10</div><div class="l">Modules</div></div>
-      <div class="stat"><div class="n">100%</div><div class="l">Offline</div></div>
+      <div class="stat"><div class="n">15+15</div><div class="l">Design + Fab</div></div>
+      <div class="stat"><div class="n">100%</div><div class="l">Offline / Hands-on</div></div>
     </div>
 
     <div class="cta-inline">
@@ -302,11 +304,11 @@ a{ text-decoration:none; color:inherit; }
     <div class="ocard">
       <div class="ic">🔩</div>
       <h4>Hands-On Learning</h4>
-      <p>15 days of Design & Dynamics training + 15 days of Fabrication, Validation & Testing. Real workshop, real tools, real builds.</p>
+      <p>15 days of Design &amp; Dynamics training + 15 days of Fabrication, Validation &amp; Testing. Real workshop, real tools, real builds.</p>
     </div>
     <div class="ocard">
       <div class="ic">🏁</div>
-      <h4>What You'll Build</h4>
+      <h4>What You Build</h4>
       <p>A fully functional All-Terrain Vehicle prototype — designed, analyzed, fabricated, and validated by participants under expert guidance.</p>
     </div>
     <div class="ocard">
@@ -316,93 +318,78 @@ a{ text-decoration:none; color:inherit; }
     </div>
   </div>
 
-  <div class="seclabel"><div class="num">02</div><div class="txt">The Journey</div><div class="rule"></div></div>
+  <div class="seclabel"><div class="num">02</div><div class="txt">30-Day Program Structure</div><div class="rule"></div></div>
   <div class="journey">
-    <div class="jstep"><div class="jn">PHASE 1</div><h5>Design &amp; Simulation</h5></div>
-    <div class="jstep"><div class="jn">DAYS 1–15</div><h5>Classroom + Practical Exercises</h5></div>
-    <div class="jstep"><div class="jn">PHASE 2</div><h5>Fabrication &amp; Testing</h5></div>
-    <div class="jstep"><div class="jn">DAYS 16–30</div><h5>Workshop + Track Testing</h5></div>
+    <div class="jstep"><div class="jn">PHASE 1 · DAYS 1–15</div><h5>Design &amp; Dynamics Training</h5></div>
+    <div class="jstep"><div class="jn">PHASE 2 · DAYS 16–30</div><h5>Fabrication, Validation &amp; Testing</h5></div>
   </div>
-  <div class="journey-desc">This program provides a comprehensive understanding of the principles and techniques involved in designing, analyzing, simulating, and fabricating high-performance Baja Buggies. Phase 1 covers chassis design, suspension &amp; steering systems, powertrain dynamics, tire behavior, and design validation through simulation. Phase 2 moves into chassis manufacturing, component assembly, wiring, and culminates in track testing and performance evaluation.</div>
-
-  <div class="seclabel"><div class="num">03</div><div class="txt">What You'll Gain</div><div class="rule"></div></div>
-  <div class="overview-grid">
+  <div class="overview-grid" style="margin-top:14px;">
     <div class="ocard">
-      <div class="ic">🎨</div>
-      <h4>Design Expertise</h4>
-      <p>Design & construct an ATV chassis considering materials, structural integrity & weight optimization.</p>
+      <h4>Phase 1 Covers</h4>
+      <p>Introduction to ATVs &amp; safety standards, chassis design &amp; frame construction, suspension analysis &amp; tuning, steering geometry &amp; handling, braking systems, powertrain &amp; drive systems, tires &amp; traction management, CAD modelling &amp; CAE simulation, mathematical modelling, dynamic analysis &amp; performance evaluation.</p>
     </div>
     <div class="ocard">
-      <div class="ic">💻</div>
-      <h4>Simulation Skills</h4>
-      <p>Analyze and design suspension systems for optimal off-road performance.</p>
-    </div>
-    <div class="ocard">
-      <div class="ic">🔧</div>
-      <h4>Fabrication Skills</h4>
-      <p>Design steering systems for precise handling and optimize braking for safety.</p>
-    </div>
-    <div class="ocard">
-      <div class="ic">⚙️</div>
-      <h4>Powertrain Skills</h4>
-      <p>Select powertrain components and optimize transmission for different ATV applications
-</p>
-    </div>
-    <div class="ocard">
-      <div class="ic">🔌</div>
-      <h4>Electrical Skills</h4>
-      <p>Design and integrate electrical systems including wiring, lighting & battery management</p>
-    </div>
-    <div class="ocard">
-      <div class="ic">🔍</div>
-      <h4>Design Validation Skills</h4>
-      <p>Perform dynamic simulations, validate designs, and conduct real physical prototype testing</p>
+      <h4>Phase 2 Covers</h4>
+      <p>Welding techniques, machining &amp; assembly, electrical systems wiring &amp; integration, battery selection &amp; management, lighting &amp; auxiliary systems, subsystem integration &amp; full assembly, physical testing &amp; performance validation, customization, off-road terrain simulation, final prototype demonstration &amp; review.</p>
     </div>
   </div>
 
-  <div class="seclabel"><div class="num">04</div><div class="txt">Training Modules</div><div class="rule"></div></div>
+  <div class="seclabel"><div class="num">03</div><div class="txt">Training Modules</div><div class="rule"></div></div>
   <div class="modgrid">
     <div class="modcard"><div class="mnum">01</div><h5>Introduction to ATVs</h5>
-      <ul><li>History & evolution of ATVs</li><li>Types and applications</li><li>Safety considerations & regulations</li></ul></div>
-    <div class="modcard"><div class="mnum">02</div><h5>Chassis Design & Construction</h5>
-      <ul><li>Fundamentals of chassis design</li><li>Material selection & tubular frame construction</li><li>Integration of chassis subsystems</li></ul></div>
+      <ul><li>History &amp; evolution of ATVs</li><li>Types and applications</li><li>Safety considerations &amp; regulations</li></ul></div>
+    <div class="modcard"><div class="mnum">02</div><h5>Chassis Design &amp; Construction</h5>
+      <ul><li>Fundamentals of chassis design</li><li>Material selection &amp; tubular frame construction</li><li>Integration of chassis subsystems</li></ul></div>
     <div class="modcard"><div class="mnum">03</div><h5>Suspension System Design</h5>
-      <ul><li>Suspension types for off-road vehicles</li><li>Spring/damper selection & tuning</li><li>Impact of suspension geometry on dynamics</li></ul></div>
-    <div class="modcard"><div class="mnum">04</div><h5>Steering & Handling</h5>
-      <ul><li>Steering components & Ackerman principle</li><li>Handling characteristics of ATVs</li><li>Tuning steering response for performance</li></ul></div>
+      <ul><li>Suspension types for off-road vehicles</li><li>Spring/damper selection &amp; tuning</li><li>Impact of suspension geometry on dynamics</li></ul></div>
+    <div class="modcard"><div class="mnum">04</div><h5>Steering &amp; Handling</h5>
+      <ul><li>Steering components &amp; Ackerman principle</li><li>Handling characteristics of ATVs</li><li>Tuning steering response for performance</li></ul></div>
     <div class="modcard"><div class="mnum">05</div><h5>Braking Systems</h5>
-      <ul><li>Disc & drum brake systems</li><li>Hydraulic braking system design</li><li>Brake force distribution & efficiency</li></ul></div>
-    <div class="modcard"><div class="mnum">06</div><h5>Powertrain & Transmission</h5>
-      <ul><li>Engine selection & considerations</li><li>Transmission options, gear ratios & drive systems</li><li>Power delivery & torque characteristics</li></ul></div>
-    <div class="modcard"><div class="mnum">07</div><h5>Tires & Wheels</h5>
-      <ul><li>Tire selection for off-road applications</li><li>Tread patterns, sizes & wheel design</li><li>Tire pressure & traction management</li></ul></div>
+      <ul><li>Disc &amp; drum brake systems</li><li>Hydraulic braking system design</li><li>Brake force distribution &amp; efficiency</li></ul></div>
+    <div class="modcard"><div class="mnum">06</div><h5>Powertrain &amp; Transmission</h5>
+      <ul><li>Engine selection &amp; considerations</li><li>Transmission options, gear ratios &amp; drive systems</li><li>Power delivery &amp; torque characteristics</li></ul></div>
+    <div class="modcard"><div class="mnum">07</div><h5>Tires &amp; Wheels</h5>
+      <ul><li>Tire selection for off-road applications</li><li>Tread patterns, sizes &amp; wheel design</li><li>Tire pressure &amp; traction management</li></ul></div>
     <div class="modcard"><div class="mnum">08</div><h5>Electrical Systems</h5>
-      <ul><li>Wiring & electrical system design</li><li>Lighting, auxiliary systems & battery management</li><li>Integration of electrical components</li></ul></div>
-    <div class="modcard"><div class="mnum">09</div><h5>Dynamic Analysis & Simulation</h5>
-      <ul><li>Modelling & simulation techniques for ATVs</li><li>Handling characteristics & stability analysis</li><li>Off-road terrain simulation & optimization</li></ul></div>
+      <ul><li>Wiring &amp; electrical system design</li><li>Lighting, auxiliary systems &amp; battery management</li><li>Integration of electrical components</li></ul></div>
+    <div class="modcard"><div class="mnum">09</div><h5>Dynamic Analysis &amp; Simulation</h5>
+      <ul><li>Modelling &amp; simulation techniques for ATVs</li><li>Handling characteristics &amp; stability analysis</li><li>Off-road terrain simulation &amp; optimization</li></ul></div>
     <div class="modcard"><div class="mnum">10</div><h5>Fabrication Techniques</h5>
-      <ul><li>Welding & machining of ATV components</li><li>Full subsystem integration & assembly</li><li>Physical testing, validation & customization</li></ul></div>
+      <ul><li>Welding &amp; machining of ATV components</li><li>Full subsystem integration &amp; assembly</li><li>Physical testing, validation &amp; customization</li></ul></div>
   </div>
 
-  <div class="seclabel"><div class="num">05</div><div class="txt">WHO SHOULD APPLY?</div><div class="rule"></div></div>
+  <div class="seclabel"><div class="num">04</div><div class="txt">Learning Outcomes</div><div class="rule"></div></div>
+  <div class="applygrid">
+    <div class="applycard"><div class="ic num">01</div><div><p>Design &amp; construct an ATV chassis considering materials, structural integrity &amp; weight optimization.</p></div></div>
+    <div class="applycard"><div class="ic num">02</div><div><p>Analyze and design suspension systems for optimal off-road performance.</p></div></div>
+    <div class="applycard"><div class="ic num">03</div><div><p>Design steering systems for precise handling and optimize braking for safety.</p></div></div>
+    <div class="applycard"><div class="ic num">04</div><div><p>Select powertrain components and optimize transmission for different ATV applications.</p></div></div>
+    <div class="applycard"><div class="ic num">05</div><div><p>Design and integrate electrical systems including wiring, lighting &amp; battery management.</p></div></div>
+    <div class="applycard"><div class="ic num">06</div><div><p>Perform dynamic simulations, validate designs, and conduct real physical prototype testing.</p></div></div>
+  </div>
+
+  <div class="seclabel"><div class="num">05</div><div class="txt">Who Should Apply?</div><div class="rule"></div></div>
   <div class="applygrid">
     <div class="applycard"><div class="ic">❤️</div><div><h6>Genuine Interest</h6><p>Passion and curiosity for off-road vehicles, ATV engineering, and motorsport.</p></div></div>
-    <div class="applycard"><div class="ic">🎓</div><div><h6>Career Focus</h6><p>Actively pursuing a career in automotive, motorsports or a related domain.</p></div></div>
-    <div class="applycard"><div class="ic">📚</div><div><h6>Basic Knowledge</h6><p>Foundational understanding of engineering concepts — no prior experience required.</p></div></div>
-    <div class="applycard"><div class="ic">⏰</div><div><h6>FullCommitment</h6><p>Attend all 30 days and actively engage in every design and workshop session.</p></div></div>
+    <div class="applycard"><div class="ic">🎓</div><div><h6>Career Focus</h6><p>Actively pursuing a career in automotive design, fabrication, or vehicle dynamics.</p></div></div>
+    <div class="applycard"><div class="ic">📚</div><div><h6>Basic Knowledge</h6><p>Foundational understanding of engineering. No deep prior experience required.</p></div></div>
+    <div class="applycard"><div class="ic">⏰</div><div><h6>Full Commitment</h6><p>Attend all 30 days and actively engage in every design and workshop session.</p></div></div>
     <div class="applycard"><div class="ic">💬</div><div><h6>Communication</h6><p>Sufficient proficiency in the language of instruction for class participation.</p></div></div>
-    <div class="applycard"><div class="ic">💻</div><div><h6>Technical Access</h6><p>Computer with stable internet for course materials and virtual activities.</p></div></div>
+    <div class="applycard"><div class="ic">💻</div><div><h6>Tech Access</h6><p>A computer/device with internet access for course materials and digital resources.</p></div></div>
   </div>
 
-  <div class="seclabel"><div class="num">06</div><div class="txt">Important Note</div><div class="rule"></div></div>
+  <div class="seclabel"><div class="num">06</div><div class="txt">Terms &amp; Conditions</div><div class="rule"></div></div>
   <div class="termslist">
-    <div class="termitem"><div class="ic">💳</div><div class="t"><b>Non-Refundable Program</b>This is a non-refundable program once enrollment is confirmed.</div></div>
-    <div class="termitem"><div class="ic">📝</div><div class="t"><b>Curriculum Flexibility</b>Curriculum may be adjusted based on available resources and program objectives.</div></div>
+    <div class="termitem"><div class="ic">📅</div><div class="t"><b>Program Schedule</b>30-day program. Participants must attend all sessions, workshops, and scheduled activities.</div></div>
+    <div class="termitem"><div class="ic">🤝</div><div class="t"><b>Code of Conduct</b>Professional and respectful behavior at all times. Discrimination or harassment results in immediate dismissal.</div></div>
+    <div class="termitem"><div class="ic">🔒</div><div class="t"><b>Confidentiality</b>All proprietary or sensitive information shared during the program must remain strictly confidential.</div></div>
+    <div class="termitem"><div class="ic">❌</div><div class="t"><b>Termination &amp; Fees</b>Organizers may terminate participation for misconduct. Fees are non-refundable in all cases.</div></div>
+    <div class="termitem"><div class="ic">📝</div><div class="t"><b>Amendments</b>Organizers may modify the schedule, content, or terms at any time. Participants will be notified in advance.</div></div>
   </div>
 
   <div class="finalcta">
-    <h2>Ready to Build Your<br>Own Buggy?</h2>
-    <p>Enroll now and secure your seat in this 30-day intensive program.</p>
+    <h2>Ready to Build Your<br>Baja Buggy?</h2>
+    <p>Register now and secure your seat in this 30-day intensive program.</p>
     <a class="btn-light" href="https://pages.razorpay.com/bajabuggy2026" target="_blank" rel="noopener">Register Now →</a>
   </div>
 
@@ -426,7 +413,7 @@ a{ text-decoration:none; color:inherit; }
 
 <div class="sticky-cta">
   <div class="info">
-    <div class="l">Buggy Building Workshop · 30 Days</div>
+    <div class="l">Baja Buggy Internship · 30 Days</div>
     <div class="d">achillesracingclubindia@gmail.com · +91 88002 19630</div>
   </div>
   <a class="btn" href="https://pages.razorpay.com/bajabuggy2026" target="_blank" rel="noopener">Register Now →</a>
