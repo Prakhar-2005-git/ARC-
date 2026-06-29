@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,29 @@
   --red: #E8320A;
   --red-dark: #B82500;
   --red-glow: rgba(232,50,10,0.18);
+  --black: #FFFFFF;
+  --dark: #F6F6F6;
+  --dark2: #EFEFEF;
+  --dark3: #F2F2F2;
+  --white: #060606;
+  --grey1: #4f4f4f;
+  --grey2: #A7A7A7;
+  --grey3: #DCDCDC;
+  --nav-bg: rgba(255,255,255,0.92);
+  --nav-bg-scrolled: rgba(255,255,255,0.98);
+  --dropdown-bg: rgba(255,255,255,0.98);
+  --border-muted: rgba(0,0,0,0.06);
+  --hero-gradient-start: rgba(255,255,255,0.92);
+  --hero-gradient-mid: rgba(255,255,255,0.65);
+  --hero-gradient-end: rgba(255,255,255,0);
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-condensed: 'Barlow Condensed', sans-serif;
+  --logo-filter: none;
+}
+
+html[data-theme="dark"] {
+  --logo-filter: brightness(0) invert(1);
   --black: #060606;
   --dark: #0D0D0D;
   --dark2: #111111;
@@ -19,9 +42,13 @@
   --grey1: #888888;
   --grey2: #3A3A3A;
   --grey3: #1E1E1E;
-  --font-display: 'Bebas Neue', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-condensed: 'Barlow Condensed', sans-serif;
+  --nav-bg: rgba(6,6,6,0.92);
+  --nav-bg-scrolled: rgba(6,6,6,0.98);
+  --dropdown-bg: rgba(6,6,6,0.98);
+  --border-muted: rgba(255,255,255,0.06);
+  --hero-gradient-start: rgba(6,6,6,0.92);
+  --hero-gradient-mid: rgba(6,6,6,0.35);
+  --hero-gradient-end: rgba(6,6,6,0);
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -39,12 +66,13 @@ body {
 
 /* ===== NAV ===== */
 nav {
-  position: fixed; top: 0; left: 0; right: 0;
+  position: sticky; top: 0;
+  /* top: 0; left: 0; right: 0; */
   z-index: 1000;
-  background: rgba(6,6,6,0.92);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  background: var(--nav-bg);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border-muted);
   padding: 0 48px;
   height: 68px;
   display: flex; align-items: center; justify-content: space-between;
@@ -52,13 +80,35 @@ nav {
   width: 100%;
 }
 
+@media screen {
+  
+}
+
 .nav-logo img {
-  height: 135px;
-  filter: brightness(0) invert(1);
+  margin-top: 10%;
+  height: 200px; width: auto;
+  filter: var(--logo-filter);
 }
 
 .nav-links {
-  display: flex; gap: 36px; list-style: none; align-items: center;
+  display: flex; gap: 24px; list-style: none; align-items: center;
+}
+
+.theme-toggle-btn {
+  font-family: var(--font-condensed);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  border: 1px solid var(--border-muted);
+  background: transparent;
+  color: var(--white);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(232,50,10,0.08);
 }
 
 .nav-links a {
@@ -72,16 +122,20 @@ nav {
   transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--white); }
-.dropdown { position: relative; }
-.dropdown .dropbtn { display: inline-flex; align-items: center; gap: 6px; }
+
+.dropdown .dropbtn {
+   display: inline-flex; 
+   align-items: center; gap: 6px; 
+   justify-content: center; cursor: pointer; 
+}
 .dropdown-content {
   position: absolute;
   top: calc(100% + 10px);
   left: 0;
   min-width: 190px;
-  background: rgba(6,6,6,0.98);
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 16px 30px rgba(0,0,0,0.28);
+  background: var(--dropdown-bg);
+  border: 1px solid var(--border-muted);
+  box-shadow: 0 16px 30px rgba(0,0,0,0.06);
   list-style: none;
   padding: 8px 0;
   margin: 0;
@@ -108,7 +162,7 @@ nav {
   letter-spacing: 1px;
   text-transform: none;
 }
-.dropdown-content a:hover { background: rgba(255,255,255,0.06); color: var(--white); }
+.dropdown-content a:hover { background: rgba(0,0,0,0.06); color: var(--white); }
 .nav-links a:focus-visible,
 .btn-primary:focus-visible,
 .btn-secondary:focus-visible,
@@ -156,7 +210,7 @@ nav {
       rgba(232,50,10,0.018) 56px,
       rgba(232,50,10,0.018) 58px
     ),
-    linear-gradient(90deg, rgba(6,6,6,0.92) 0%, rgba(6,6,6,0.35) 30%, rgba(6,6,6,0.16) 50%, rgba(6,6,6,0) 100%),
+    linear-gradient(90deg, var(--hero-gradient-start) 0%, var(--hero-gradient-mid) 30%, var(--hero-gradient-end) 50%, rgba(255,255,255,0) 100%),
     url('hero_bg.jpg');
   background-repeat: repeat, no-repeat, no-repeat;
   background-position: center center, center center, right 4% center;
@@ -244,8 +298,8 @@ nav {
   display: grid;
   min-height: 380px;
   padding: 144px 38px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.03);
+  border: 1px solid var(--panel-border);
   border-radius: 32px;
   backdrop-filter: blur(14px);
   box-shadow: 0 24px 80px rgba(0,0,0,0.18);
@@ -327,7 +381,7 @@ nav {
   text-transform: uppercase;
   text-decoration: none;
   color: var(--white);
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(0,0,0,0.12);
   padding: 16px 0;
   clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
   transition: border-color 0.2s, color 0.2s;
@@ -353,7 +407,7 @@ nav {
   text-transform: uppercase; color: var(--white);
   padding: 0 40px;
 }
-.ticker-sep { color: rgba(255,255,255,0.4); }
+.ticker-sep { color: rgba(0,0,0,0.4); }
 @keyframes ticker {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -398,11 +452,11 @@ section {
 }
 .upload-panel, .social-card {
   background: var(--dark2);
-  border: 1px solid rgba(255,255,255,0.07);
+  border: 1px solid rgba(0,0,0,0.06);
 }
 .upload-dropzone {
   min-height: 270px;
-  border: 1px dashed rgba(255,255,255,0.18);
+  border: 1px dashed rgba(0,0,0,0.12);
   background:
     linear-gradient(135deg, rgba(232,50,10,0.10), transparent 34%),
     var(--dark3);
@@ -453,7 +507,7 @@ section {
   height: 8px;
 }
 .product-preview-scroll::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.06);
   border-radius: 999px;
 }
 .product-preview-grid {
@@ -467,7 +521,7 @@ section {
   min-width: 260px;
   width: 260px;
   background: var(--dark2);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(0,0,0,0.06);
   padding: 16px;
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -482,7 +536,7 @@ section {
   aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: 10px;
-  background: rgba(255,255,255,0.03);
+  background: rgba(0,0,0,0.02);
 }
 .product-image-slot img {
   width: 100%;
@@ -511,13 +565,13 @@ section {
 .media-empty {
   grid-column: 1 / -1;
   display: grid; place-items: center;
-  min-height: 154px; border: 1px solid rgba(255,255,255,0.06);
+  min-height: 154px; border: 1px solid rgba(0,0,0,0.06);
   color: #555; font-family: var(--font-condensed); font-size: 12px;
-  letter-spacing: 3px; text-transform: uppercase; background: rgba(255,255,255,0.02);
+  letter-spacing: 3px; text-transform: uppercase; background: rgba(0,0,0,0.02);
 }
 .media-thumb {
   position: relative; aspect-ratio: 4 / 3; overflow: hidden;
-  background: var(--dark3); border: 1px solid rgba(255,255,255,0.08);
+  background: var(--dark3); border: 1px solid rgba(0,0,0,0.06);
 }
 .media-thumb img, .media-thumb video {
   width: 100%; height: 100%; object-fit: cover; display: block;
@@ -526,7 +580,7 @@ section {
   position: absolute; left: 8px; top: 8px;
   font-family: var(--font-condensed); font-size: 9px; letter-spacing: 2px;
   text-transform: uppercase; color: var(--white);
-  background: rgba(6,6,6,0.72); border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.72); border: 1px solid rgba(0,0,0,0.12);
   padding: 3px 8px;
 }
 .social-preview-grid {
@@ -560,7 +614,7 @@ section {
 .social-avatar {
   width: 44px; height: 44px; border-radius: 50%;
   background: linear-gradient(135deg, var(--red), #272727 72%);
-  border: 1px solid rgba(255,255,255,0.12);
+  border: 1px solid rgba(0,0,0,0.12);
 }
 .social-name {
   font-family: var(--font-condensed); font-weight: 700; font-size: 15px;
@@ -577,9 +631,9 @@ section {
   overflow: hidden;
   background:
     linear-gradient(135deg, rgba(232,50,10,0.16), transparent 45%),
-    repeating-linear-gradient(-12deg, transparent, transparent 18px, rgba(255,255,255,0.025) 18px, rgba(255,255,255,0.025) 20px),
+    repeating-linear-gradient(-12deg, transparent, transparent 18px, rgba(0,0,0,0.025) 18px, rgba(0,0,0,0.025) 20px),
     var(--dark3);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(0,0,0,0.06);
   display: grid; place-items: center;
   display: block;
 }
@@ -605,7 +659,7 @@ section {
 }
 .social-actions {
   display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px;
-  margin-top: 2px; padding-top: 2px; border-top: 1px solid rgba(255,255,255,0.06);
+  margin-top: 2px; padding-top: 2px; border-top: 1px solid rgba(0,0,0,0.06);
 }
 .social-action {
   font-family: var(--font-condensed); font-size: 10px; letter-spacing: 2px;
@@ -885,7 +939,7 @@ section {
 .role-item-name {
   font-family: var(--font-condensed);
   font-weight: 600; font-size: 14px; letter-spacing: 1.5px;
-  text-transform: uppercase; color: #bbb; flex: 1;
+  text-transform: uppercase; color: var(--grey1); flex: 1;
 }
 .role-badge {
   font-family: var(--font-condensed);
@@ -943,7 +997,7 @@ footer {
   display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 50px;
 }
 .footer-logo img {
-  height: 40px; filter: brightness(0) invert(1); margin-bottom: 20px;
+  height: 200px; filter: var(--logo-filter); margin-bottom: 20px;
 }
 .footer-tagline {
   font-family: var(--font-condensed);
@@ -987,7 +1041,7 @@ footer {
 @media (max-width: 900px) {
   nav {
     padding: 0 24px; 
-    position:relative;
+    position:relative sticky; top: 0; z-index: 1000;
   }
   .nav-links {
     display: none;
@@ -998,7 +1052,7 @@ footer {
     position: absolute;
     top: 68px;
     left: 0; right: 0;
-    background: rgba(6,6,6,0.98);
+    background: var(--dropdown-bg);
     padding: 20px 24px;
     gap: 16px;
     border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -1130,6 +1184,7 @@ footer {
     <li><a href="#team">Team</a></li>
     <li><a href="#careers">Careers</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
+    <li><button class="theme-toggle-btn" type="button">Dark mode</button></li>
   </ul>
   <div class="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
@@ -1290,8 +1345,8 @@ footer {
           <div class="social-platform">Instagram post preview</div>
         </div>
       </div>
-      <span id="instagram-visual"><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DSwOsTOkSdz/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/DSwOsTOkSdz/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 100%;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100%;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 100%;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:100%;"><svg width="100%" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DSwOsTOkSdz/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by ARC (@_arcglobal)</a></p></div></blockquote>
-<script async src="//www.instagram.com/embed.js"></script></span>
+      <div id="instagram-visual"><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DSwOsTOkSdz/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/DSwOsTOkSdz/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 100%;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100%;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 100%;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:100%;"><svg width="100%" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DSwOsTOkSdz/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by ARC (@_arcglobal)</a></p></div></blockquote>
+<script async src="//www.instagram.com/embed.js"></script></div>
     </article>
   </div>
 </section>
@@ -1807,7 +1862,7 @@ footer {
 // NAV scroll effect
 window.addEventListener('scroll', () => {
   const nav = document.getElementById('navbar');
-  nav.style.background = window.scrollY > 60 ? 'rgba(6,6,6,0.98)' : 'rgba(6,6,6,0.92)';
+  nav.style.background = window.scrollY > 60 ? 'var(--nav-bg-scrolled)' : 'var(--nav-bg)';
 });
 
 // Hamburger menu
@@ -1856,6 +1911,26 @@ document.querySelectorAll('.nav-links a:not(.dropbtn)').forEach(link => {
 window.addEventListener('resize', () => {
   if (window.innerWidth > 900) closeMenu();
 });
+
+const themeToggleBtn = document.querySelector('.theme-toggle-btn');
+
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+  if (themeToggleBtn) {
+    themeToggleBtn.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
+  }
+}
+
+const savedTheme = localStorage.getItem('theme') || 'dark';
+setTheme(savedTheme);
+
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener('click', () => {
+    const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    setTheme(nextTheme);
+  });
+}
 
 // Scroll animations
 const observer = new IntersectionObserver((entries) => {
