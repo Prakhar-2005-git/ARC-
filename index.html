@@ -67,7 +67,10 @@ body {
 /* ===== NAV ===== */
 nav {
   position: sticky; top: 0;
+<<<<<<< HEAD
   /* top: 0; left: 0; right: 0; */
+=======
+>>>>>>> 9954f4d0e436baa6bc373d2838e8fcc5db3705fa
   z-index: 1000;
   background: var(--nav-bg);
   -webkit-backdrop-filter: blur(6px);
@@ -85,9 +88,15 @@ nav {
 }
 
 .nav-logo img {
+<<<<<<< HEAD
   margin-top: 10%;
   height: 200px; width: auto;
   filter: var(--logo-filter);
+=======
+  height: 200px;
+  filter: brightness(0) invert(1);
+  margin-top: 10%;
+>>>>>>> 9954f4d0e436baa6bc373d2838e8fcc5db3705fa
 }
 
 .nav-links {
@@ -122,7 +131,11 @@ nav {
   transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--white); }
+<<<<<<< HEAD
 
+=======
+.dropdown { position: relative; }
+>>>>>>> 9954f4d0e436baa6bc373d2838e8fcc5db3705fa
 .dropdown .dropbtn {
    display: inline-flex; 
    align-items: center; gap: 6px; 
@@ -706,7 +719,21 @@ section {
     min-height: auto;
   }
 }
+#instagram-visual {
+  display: block;
+  width: 100%;
+  overflow: hidden; 
+  border-radius: 8px; 
+}
 
+/* 2. Force the Instagram iframe to fit 100% of the wrapper */
+#instagram-visual iframe.instagram-media,
+.instagram-media {
+  min-width: 100% !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
 /* ===== ABOUT ===== */
 #about {
   background: var(--dark);
@@ -1041,7 +1068,12 @@ footer {
 @media (max-width: 900px) {
   nav {
     padding: 0 24px; 
+<<<<<<< HEAD
     position:relative sticky; top: 0; z-index: 1000;
+=======
+    position:relative sticky; top:0;
+    z-index: 1000;
+>>>>>>> 9954f4d0e436baa6bc373d2838e8fcc5db3705fa
   }
   .nav-links {
     display: none;
