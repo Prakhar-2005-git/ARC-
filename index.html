@@ -66,7 +66,7 @@ body {
 
 /* ===== NAV ===== */
 nav {
-  position: sticky; top: 0;
+  position: sticky; top:0;    
   z-index: 1000;
   background: var(--nav-bg);
   -webkit-backdrop-filter: blur(6px);
@@ -84,15 +84,9 @@ nav {
 }
 
 .nav-logo img {
-<<<<<<< HEAD
-  margin-top: 10%;
-  height: 200px; width: auto;
-  filter: var(--logo-filter);
-=======
   height: 200px;
-  filter: brightness(0) invert(1);
+  filter: var(--logo-filter);
   margin-top: 10%;
->>>>>>> 9954f4d0e436baa6bc373d2838e8fcc5db3705fa
 }
 
 .nav-links {
@@ -127,16 +121,8 @@ nav {
   transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--white); }
-<<<<<<< HEAD
-
-=======
 .dropdown { position: relative; }
->>>>>>> 9954f4d0e436baa6bc373d2838e8fcc5db3705fa
-.dropdown .dropbtn {
-   display: inline-flex; 
-   align-items: center; gap: 6px; 
-   justify-content: center; cursor: pointer; 
-}
+.dropdown .dropbtn { display: inline-flex; align-items: center; gap: 6px; }
 .dropdown-content {
   position: absolute;
   top: calc(100% + 10px);
@@ -1064,12 +1050,7 @@ footer {
 @media (max-width: 900px) {
   nav {
     padding: 0 24px; 
-<<<<<<< HEAD
-    position:relative sticky; top: 0; z-index: 1000;
-=======
-    position:relative sticky; top:0;
-    z-index: 1000;
->>>>>>> 9954f4d0e436baa6bc373d2838e8fcc5db3705fa
+    position:relative sticky; top: 0; z-index: 100;
   }
   .nav-links {
     display: none;
@@ -1086,6 +1067,7 @@ footer {
     border-bottom: 1px solid rgba(255,255,255,0.06);
   }
   .dropdown .dropbtn {
+    justify-content: center;
     width: 100%;
   }
   .dropdown .dropdown-content {
@@ -1218,7 +1200,7 @@ footer {
     <span></span><span></span><span></span>
   </div>
 </nav>
-<div class="ticker" style="margin-top: 4%;">
+<div class="ticker" >
   <div class="ticker-inner" id="ticker-inner">
     <span class="ticker-item"><a class="white-link" href="https://forms.gle/D6AfAjKS8njYUYjE9" target="_blank" rel="noopener noreferrer">ARC Championship (Click to register)</a> <span class="ticker-sep">·</span></span>
     <span class="ticker-item"><a class="white-link" href="https://forms.gle/D6AfAjKS8njYUYjE9" target="_blank" rel="noopener noreferrer">India Student Championship (Click to register)</a> <span class="ticker-sep">·</span></span>
